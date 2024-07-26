@@ -33,7 +33,7 @@ public class MemoService {
 
     public List<MemoResponseDto> getMemos() {
         // DB 조회 - MemoResponseDto에서 Memo를 파라미터로 가지고 있는 생성자를 가져와 하나씩 리스트로 변경
-        return memoRepository.findAll().stream().map(MemoResponseDto::new).toList();
+        return memoRepository.findAllByOrderByModifiedAtDesc().stream().map(MemoResponseDto::new).toList();
     }
 
     @Transactional
